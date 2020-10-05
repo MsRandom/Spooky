@@ -1,9 +1,10 @@
 package net.msrandom.spooky.block;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.EndPortalBlock;
+import net.minecraft.block.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.network.packet.s2c.play.*;
@@ -16,19 +17,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProperties;
 import net.minecraft.world.biome.source.BiomeAccess;
 import net.msrandom.spooky.SpookyMod;
 
-import java.util.Iterator;
-
 public class FoggyMirrorBlock extends Block {
     public static final RegistryKey<World> SPOOKY = RegistryKey.of(Registry.DIMENSION, new Identifier(SpookyMod.MOD_ID, "spooky"));
 
-    public FoggyMirrorBlock(Settings settings) {
-        super(settings);
+    public FoggyMirrorBlock() {
+        super(FabricBlockSettings.of(Material.GLASS));
     }
 
     @Override
@@ -60,6 +58,7 @@ public class FoggyMirrorBlock extends Block {
             player.networkHandler.sendPacket(new PlayerAbilitiesS2CPacket(player.abilities));
             playerManager.sendWorldInfo(player, destination);
             playerManager.sendPlayerStatus(player);
+
             for (StatusEffectInstance statusEffect : player.getStatusEffects()) {
                 player.networkHandler.sendPacket(new EntityStatusEffectS2CPacket(player.getEntityId(), statusEffect));
             }

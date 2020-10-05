@@ -52,10 +52,10 @@
       }
     },
     "biome_source": {
-      "seed": 0,
-      "type": "minecraft:vanilla_layered",
-      "large_biomes": true,
-      "legacy_biome_init_layer": false
+      "type": "spooky:spooky",
+      "biomes": [
+
+      ]
     }
   }
 }
