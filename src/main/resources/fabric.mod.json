@@ -1,25 +1,22 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "spooky",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Spooky",
+  "description": "",
   "authors": [
-    "Me!"
+    "Coda1552",
+    "Ms. Random/Ashley",
+    "Mnesikos",
+    "Ikerleon2"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.msrandom.spooky.SpookyMod"
     ]
   },
   "mixins": [
@@ -30,8 +27,5 @@
     "fabricloader": ">=0.7.4",
     "fabric": "*",
     "minecraft": "1.16.x"
-  },
-  "suggests": {
-    "flamingo": "*"
   }
 }
